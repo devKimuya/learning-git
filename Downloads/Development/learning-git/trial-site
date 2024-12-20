@@ -27,6 +27,7 @@
             color: #fff;
             margin: 0 10px;
             text-decoration: none;
+            cursor: pointer;
         }
         main {
             padding: 20px;
@@ -47,16 +48,34 @@
         <h1>Welcome to My Simple Website</h1>
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
     </nav>
     <main>
-        <h2>About This Website</h2>
-        <p>This is a simple website created to demonstrate basic HTML structure and styling.</p>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to the home page.</p>
+        </section>
+        <section id="about" style="display:none;">
+            <h2>About This Website</h2>
+            <p>This is a simple website created to demonstrate basic HTML structure and styling.</p>
+        </section>
+        <section id="contact" style="display:none;">
+            <h2>Contact Us</h2>
+            <p>You can contact us at contact@example.com.</p>
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 Simple Website. All rights reserved.</p>
     </footer>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
